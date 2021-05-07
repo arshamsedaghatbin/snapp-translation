@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="deliveryTimeSlot">
+      <h2 data-cy="deliveryTimeSlotDetailsHeading">
+        <span jhiTranslate="snappTranslationApp.deliveryTimeSlot.detail.title">Delivery Time Slot</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ deliveryTimeSlot.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.deliveryTimeSlot.active">Active</span></dt>
+        <dd>
+          <span>{{ deliveryTimeSlot.active }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.deliveryTimeSlot.stratTime">Strat Time</span></dt>
+        <dd>
+          <span>{{ deliveryTimeSlot.stratTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.deliveryTimeSlot.endTime">End Time</span></dt>
+        <dd>
+          <span>{{ deliveryTimeSlot.endTime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/delivery-time-slot', deliveryTimeSlot.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "snappTranslationApp": {
+    "PricingStrategy": {
+      "null": "",
+      "Automatic": "Automatic",
+      "Manual": "Manual"
+    }
+  }
+}

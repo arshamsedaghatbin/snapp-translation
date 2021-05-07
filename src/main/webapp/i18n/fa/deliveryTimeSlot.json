@@ -1,0 +1,26 @@
+{
+  "snappTranslationApp": {
+    "deliveryTimeSlot": {
+      "home": {
+        "title": "Delivery Time Slots",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Delivery Time Slot",
+        "createOrEditLabel": "Create or edit a Delivery Time Slot",
+        "notFound": "No Delivery Time Slots found"
+      },
+      "created": "A new Delivery Time Slot is created with identifier {{ param }}",
+      "updated": "A Delivery Time Slot is updated with identifier {{ param }}",
+      "deleted": "A Delivery Time Slot is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delivery Time Slot {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery Time Slot"
+      },
+      "id": "ID",
+      "active": "Active",
+      "stratTime": "Strat Time",
+      "endTime": "End Time"
+    }
+  }
+}

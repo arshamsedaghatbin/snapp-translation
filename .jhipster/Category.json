@@ -1,0 +1,34 @@
+{
+  "name": "Category",
+  "fields": [
+    {
+      "fieldName": "documentCategory",
+      "fieldType": "CategoryType",
+      "fieldValues": "IDENTICAL_DOCUMENT,EDUCTIONAL_DOCUMENT,WORK_DOCUMENT,OTHER"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "subCategory",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "subCategory"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "document"
+    }
+  ],
+  "entityTableName": "category",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210507133921"
+}

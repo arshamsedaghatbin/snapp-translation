@@ -1,0 +1,61 @@
+{
+  "name": "Order",
+  "fields": [
+    {
+      "fieldName": "handOverType",
+      "fieldType": "DeliveryType",
+      "fieldValues": "NEED_TO_SEND,UPLOADE"
+    },
+    {
+      "fieldName": "deliveryType",
+      "fieldType": "DeliveryType",
+      "fieldValues": "NEED_TO_SEND,UPLOADE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "delivery",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "handOver",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "translationCompany",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "translationCompany",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "deliveryTimeSlot",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "deliveryTimeSlot",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "document"
+    }
+  ],
+  "entityTableName": "jhi_order",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210507133916"
+}
