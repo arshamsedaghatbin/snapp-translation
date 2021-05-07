@@ -1,0 +1,132 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-order-heading" data-cy="OrderCreateUpdateHeading" jhiTranslate="snappTranslationApp.order.home.createOrEditLabel">
+        Create or edit a Order
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.order.handOverType" for="field_handOverType"
+            >Hand Over Type</label
+          >
+          <select class="form-control" name="handOverType" formControlName="handOverType" id="field_handOverType" data-cy="handOverType">
+            <option [ngValue]="null">{{ 'snappTranslationApp.DeliveryType.null' | translate }}</option>
+            <option value="NEED_TO_SEND">{{ 'snappTranslationApp.DeliveryType.NEED_TO_SEND' | translate }}</option>
+            <option value="UPLOADE">{{ 'snappTranslationApp.DeliveryType.UPLOADE' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.order.deliveryType" for="field_deliveryType"
+            >Delivery Type</label
+          >
+          <select class="form-control" name="deliveryType" formControlName="deliveryType" id="field_deliveryType" data-cy="deliveryType">
+            <option [ngValue]="null">{{ 'snappTranslationApp.DeliveryType.null' | translate }}</option>
+            <option value="NEED_TO_SEND">{{ 'snappTranslationApp.DeliveryType.NEED_TO_SEND' | translate }}</option>
+            <option value="UPLOADE">{{ 'snappTranslationApp.DeliveryType.UPLOADE' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.order.delivery" for="field_delivery">Delivery</label>
+          <select class="form-control" id="field_delivery" data-cy="delivery" name="delivery" formControlName="delivery">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="deliveryOption.id === editForm.get('delivery')!.value?.id ? editForm.get('delivery')!.value : deliveryOption"
+              *ngFor="let deliveryOption of deliveriesCollection; trackBy: trackDeliveryById"
+            >
+              {{ deliveryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.order.handOver" for="field_handOver">Hand Over</label>
+          <select class="form-control" id="field_handOver" data-cy="handOver" name="handOver" formControlName="handOver">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="deliveryOption.id === editForm.get('handOver')!.value?.id ? editForm.get('handOver')!.value : deliveryOption"
+              *ngFor="let deliveryOption of handOversCollection; trackBy: trackDeliveryById"
+            >
+              {{ deliveryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.order.translationCompany" for="field_translationCompany"
+            >Translation Company</label
+          >
+          <select
+            class="form-control"
+            id="field_translationCompany"
+            data-cy="translationCompany"
+            name="translationCompany"
+            formControlName="translationCompany"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                translationCompanyOption.id === editForm.get('translationCompany')!.value?.id
+                  ? editForm.get('translationCompany')!.value
+                  : translationCompanyOption
+              "
+              *ngFor="let translationCompanyOption of translationCompaniesCollection; trackBy: trackTranslationCompanyById"
+            >
+              {{ translationCompanyOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.order.deliveryTimeSlot" for="field_deliveryTimeSlot"
+            >Delivery Time Slot</label
+          >
+          <select
+            class="form-control"
+            id="field_deliveryTimeSlot"
+            data-cy="deliveryTimeSlot"
+            name="deliveryTimeSlot"
+            formControlName="deliveryTimeSlot"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                deliveryTimeSlotOption.id === editForm.get('deliveryTimeSlot')!.value?.id
+                  ? editForm.get('deliveryTimeSlot')!.value
+                  : deliveryTimeSlotOption
+              "
+              *ngFor="let deliveryTimeSlotOption of deliveryTimeSlotsCollection; trackBy: trackDeliveryTimeSlotById"
+            >
+              {{ deliveryTimeSlotOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-category-heading"
+        data-cy="CategoryCreateUpdateHeading"
+        jhiTranslate="snappTranslationApp.category.home.createOrEditLabel"
+      >
+        Create or edit a Category
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.category.documentCategory" for="field_documentCategory"
+            >Document Category</label
+          >
+          <select
+            class="form-control"
+            name="documentCategory"
+            formControlName="documentCategory"
+            id="field_documentCategory"
+            data-cy="documentCategory"
+          >
+            <option [ngValue]="null">{{ 'snappTranslationApp.CategoryType.null' | translate }}</option>
+            <option value="IDENTICAL_DOCUMENT">{{ 'snappTranslationApp.CategoryType.IDENTICAL_DOCUMENT' | translate }}</option>
+            <option value="EDUCTIONAL_DOCUMENT">{{ 'snappTranslationApp.CategoryType.EDUCTIONAL_DOCUMENT' | translate }}</option>
+            <option value="WORK_DOCUMENT">{{ 'snappTranslationApp.CategoryType.WORK_DOCUMENT' | translate }}</option>
+            <option value="OTHER">{{ 'snappTranslationApp.CategoryType.OTHER' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="snappTranslationApp.category.document" for="field_document">Document</label>
+          <select class="form-control" id="field_document" data-cy="document" name="document" formControlName="document">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="documentOption.id === editForm.get('document')!.value?.id ? editForm.get('document')!.value : documentOption"
+              *ngFor="let documentOption of documentsSharedCollection; trackBy: trackDocumentById"
+            >
+              {{ documentOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

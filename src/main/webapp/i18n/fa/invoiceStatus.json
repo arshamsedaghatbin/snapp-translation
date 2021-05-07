@@ -1,0 +1,9 @@
+{
+  "snappTranslationApp": {
+    "InvoiceStatus": {
+      "null": "",
+      "PAID": "PAID",
+      "UNPAID": "UNPAID"
+    }
+  }
+}

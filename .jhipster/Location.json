@@ -1,0 +1,28 @@
+{
+  "name": "Location",
+  "fields": [
+    {
+      "fieldName": "lat",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lng",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "exactAddress",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "location",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210507133920"
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Invoice",
+  "fields": [
+    {
+      "fieldName": "customerPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "taxPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "invoiceStatus",
+      "fieldType": "InvoiceStatus",
+      "fieldValues": "PAID,UNPAID"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "handOver",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "delivery",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "document"
+    }
+  ],
+  "entityTableName": "invoice",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210507133923"
+}

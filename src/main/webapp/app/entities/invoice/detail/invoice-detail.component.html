@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="invoice">
+      <h2 data-cy="invoiceDetailsHeading"><span jhiTranslate="snappTranslationApp.invoice.detail.title">Invoice</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ invoice.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.invoice.customerPrice">Customer Price</span></dt>
+        <dd>
+          <span>{{ invoice.customerPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.invoice.totalPrice">Total Price</span></dt>
+        <dd>
+          <span>{{ invoice.totalPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.invoice.taxPrice">Tax Price</span></dt>
+        <dd>
+          <span>{{ invoice.taxPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.invoice.invoiceStatus">Invoice Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'snappTranslationApp.InvoiceStatus.' + invoice.invoiceStatus }}">{{ invoice.invoiceStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.invoice.handOver">Hand Over</span></dt>
+        <dd>
+          <div *ngIf="invoice.handOver">
+            <a [routerLink]="['/delivery', invoice.handOver?.id, 'view']">{{ invoice.handOver?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="snappTranslationApp.invoice.delivery">Delivery</span></dt>
+        <dd>
+          <div *ngIf="invoice.delivery">
+            <a [routerLink]="['/delivery', invoice.delivery?.id, 'view']">{{ invoice.delivery?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/invoice', invoice.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

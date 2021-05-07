@@ -1,0 +1,27 @@
+{
+  "snappTranslationApp": {
+    "translationCompany": {
+      "home": {
+        "title": "Translation Companies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Translation Company",
+        "createOrEditLabel": "Create or edit a Translation Company",
+        "notFound": "No Translation Companies found"
+      },
+      "created": "A new Translation Company is created with identifier {{ param }}",
+      "updated": "A Translation Company is updated with identifier {{ param }}",
+      "deleted": "A Translation Company is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Translation Company {{ id }}?"
+      },
+      "detail": {
+        "title": "Translation Company"
+      },
+      "id": "ID",
+      "name": "Name",
+      "phoneNumber": "Phone Number",
+      "secondPhoneNumber": "Second Phone Number",
+      "location": "Location"
+    }
+  }
+}

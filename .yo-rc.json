@@ -42,7 +42,19 @@
     "jwtSecretKey": "NzdiMjdjYTliMzRiYWE4ZjJiY2U2NmEzZWEwM2MxZjA2NmNiODgxYmZmOWEwNDZiYzhmOWY5M2Y4ZDIzNWVlZDMzNGM1NjhkYTFlYmMyYzVmMzg2ZDgwNTljNWFhMTIxMTg0YzY5YjA1OTc2MWM4MWFlMWI0ZDExYzEyNWFlNDg=",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": [
+      "Order",
+      "Delivery",
+      "DeliveryTimeSlot",
+      "Document",
+      "Location",
+      "Category",
+      "SubCategory",
+      "Invoice",
+      "TranslationCompany"
+    ],
+    "lastLiquibaseTimestamp": 1620394764000
   },
   "git-provider": "GitHub",
   "git-company": "arshamsedaghatbin",
